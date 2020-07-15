@@ -11,9 +11,8 @@ import Foundation
 class FirstViewPresenterImpl: FirstViewIPresenterInterface {
  
     var model: Model?
-    
     weak var view: FirstViewInterface?
-    let networkService:NetworkServiceInterface
+    let networkService: NetworkServiceInterface
     
     required init(view: FirstViewInterface, networkService: NetworkServiceInterface) {
         self.view = view

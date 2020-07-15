@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class TSecondViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var model: Model?
     var modelType: String?
