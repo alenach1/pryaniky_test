@@ -9,11 +9,10 @@
 import UIKit
 
 class HzTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var lable: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     func configure(data: [GeneralData]) {

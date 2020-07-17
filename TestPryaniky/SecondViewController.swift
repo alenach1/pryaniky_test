@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TSecondViewController: UIViewController {
+class SecondViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var model: Model?
     var modelType: String?
@@ -16,8 +16,6 @@ class TSecondViewController: UIViewController {
         super.viewDidLoad()
         registerNib()
         setupTableView()
-
-        // Do any additional setup after loading the view.
     }
     fileprivate func setupTableView() {
         tableView.tableFooterView = UIView()

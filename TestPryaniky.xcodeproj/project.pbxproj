@@ -111,6 +111,24 @@
 			name = SecondModule;
 			sourceTree = "<group>";
 		};
+		F71A0DF424BF47B60095E02B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F76C198E24BE01EE00CC1F26 /* FirstViewController.swift */,
+				F76C198F24BE01EE00CC1F26 /* FirstViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F71A0DF524BF47E30095E02B /* Servise */ = {
+			isa = PBXGroup;
+			children = (
+				F721DA8024BE17EC0074D2CF /* ModuleBilder */,
+				F76C199824BE062400CC1F26 /* NetworkService */,
+			);
+			path = Servise;
+			sourceTree = "<group>";
+		};
 		F721DA7A24BE0DC80074D2CF /* FirstViewPresenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,9 +141,7 @@
 		F721DA7B24BE14030074D2CF /* FirstModule */ = {
 			isa = PBXGroup;
 			children = (
-				F76C198E24BE01EE00CC1F26 /* FirstViewController.swift */,
-				F76C198F24BE01EE00CC1F26 /* FirstViewController.xib */,
-				F76C199824BE062400CC1F26 /* NetworkService */,
+				F71A0DF424BF47B60095E02B /* View */,
 				F721DA7A24BE0DC80074D2CF /* FirstViewPresenter */,
 			);
 			path = FirstModule;
@@ -161,9 +177,10 @@
 		F76C195424BDE41E00CC1F26 /* TestPryaniky */ = {
 			isa = PBXGroup;
 			children = (
+				F71A0DF524BF47E30095E02B /* Servise */,
+				F76C198524BDEF7D00CC1F26 /* Model */,
+				F721DA7B24BE14030074D2CF /* FirstModule */,
 				F71A0DDC24BE34420095E02B /* SecondModule */,
-				F721DA8024BE17EC0074D2CF /* ModuleBilder */,
-				F76C198524BDEF7D00CC1F26 /* ModelForDecoder */,
 				F76C197B24BDEC8800CC1F26 /* CustomTableViewCell */,
 				F76C195524BDE41E00CC1F26 /* AppDelegate.swift */,
 				F76C195724BDE41E00CC1F26 /* SceneDelegate.swift */,
@@ -171,7 +188,6 @@
 				F76C195E24BDE42200CC1F26 /* Assets.xcassets */,
 				F76C196024BDE42200CC1F26 /* LaunchScreen.storyboard */,
 				F76C196324BDE42200CC1F26 /* Info.plist */,
-				F721DA7B24BE14030074D2CF /* FirstModule */,
 			);
 			path = TestPryaniky;
 			sourceTree = "<group>";
@@ -209,7 +225,7 @@
 			path = ConfigCell;
 			sourceTree = "<group>";
 		};
-		F76C198524BDEF7D00CC1F26 /* ModelForDecoder */ = {
+		F76C198524BDEF7D00CC1F26 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F76C198C24BDF10A00CC1F26 /* Model.swift */,
@@ -217,7 +233,7 @@
 				F76C198824BDF01000CC1F26 /* DetaileData.swift */,
 				F76C198624BDEFBC00CC1F26 /* Variants.swift */,
 			);
-			path = ModelForDecoder;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F76C199824BE062400CC1F26 /* NetworkService */ = {

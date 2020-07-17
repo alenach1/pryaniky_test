@@ -9,26 +9,74 @@
 import XCTest
 @testable import TestPryaniky
 
-class TestPryanikyTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+class MockView: FirstViewInterface {
+    func success() {
+        
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func failure(error: Error) {
+        
     }
+}
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+class MockNetworkService: NetworkServiceInterface {
+    var model: Model!
+    
+    init() {}
+    
+    convenience init(model: Model) {
+        self.init()
+        self.model = model
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func getModel(completion: @escaping (Result<Model?, Error>) -> ()) {
+        if let model = model {
+            completion(.success(model))
+        } else {
+            let error = NSError(domain: "Ошибка", code: 9, userInfo: nil)
+            completion(.failure(error))
         }
+    }
+    
+    
+}
+
+class TestPryanikyTests: XCTestCase {
+    
+    var view: MockView!
+    var presenter: FirstViewPresenterImpl!
+    var networkService: NetworkServiceInterface!
+    var model = Model()
+
+    override func setUp() {
+      
+    }
+
+    override func tearDown() {
+        view = nil
+        presenter = nil
+        networkService = nil
+    }
+    
+    func testGetSuccessModel() {
+        let model = Model(data: [GeneralData(name: "Tor", data: DataileData(text: "Lom", url: "Lol", selectedId: 2, variants: [Variants(id: 9, text: "Kek")]))], view: ["Bra", "Gol","Gaf"])
+        
+        view = MockView()
+        networkService = MockNetworkService(model: model)
+        presenter = FirstViewPresenterImpl(view: view, networkService: networkService)
+        var catchModel = [Model]()
+        
+        networkService.getModel { result in
+            switch result {
+            case .success(let model):
+                catchModel.append(model!)
+            case . failure(let error):
+                print(error)
+            }
+        }
+        XCTAssertNotEqual(catchModel.count, 0)
+        
+        
+        
     }
 
 }
