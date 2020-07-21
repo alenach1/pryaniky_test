@@ -19,6 +19,7 @@ class FirstViewPresenterImpl: FirstViewIPresenterInterface {
         self.networkService = networkService
         getModel()
     }
+    
     func getModel() {
         networkService.getModel { [weak self] result in
             guard let self = self else { return }
@@ -31,10 +32,6 @@ class FirstViewPresenterImpl: FirstViewIPresenterInterface {
                     self.view?.failure(error: error)
                 }
             }
-            
         }
     }
-    
-    
-    
 }

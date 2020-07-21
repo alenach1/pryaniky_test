@@ -15,6 +15,8 @@ class PictureTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+//        pryanikyImageView.clipsToBounds = true
+//        pryanikyImageView.contentMode = .scaleAspectFill
        
     }
 
@@ -28,17 +30,17 @@ class PictureTableViewCell: UITableViewCell {
                         return
                 }
 
-                self.lable.text = dataileDataText
+                
 
                 DispatchQueue.global().async {
-
                     let data = try? Data(contentsOf: url)
 
                     DispatchQueue.main.async {
                         guard let data = data else { return }
-
-                        self.pryanikyImageView.image = UIImage(data: data)
-
+                        let image = UIImage(data: data)
+                        
+                        self.pryanikyImageView.image = image!
+                        self.lable.text = dataileDataText
 
                     }
                 }

@@ -17,5 +17,4 @@ protocol FirstViewIPresenterInterface: class {
     init(view: FirstViewInterface, networkService: NetworkServiceInterface)
     func getModel()
     var model: Model? { get set }
-    
 }

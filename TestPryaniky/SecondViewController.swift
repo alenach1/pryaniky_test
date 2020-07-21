@@ -20,17 +20,23 @@ class SecondViewController: UIViewController {
     fileprivate func setupTableView() {
         tableView.tableFooterView = UIView()
     }
-
 }
 
 extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        guard let arrayCells = model?.view else { return 1 }
+        var count = 0
+        for elem in arrayCells {
+            if elem == modelType {
+                count = count + 1
+            }
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let arrayCells = model?.view, let data = model?.data else { return UITableViewCell() }
-        
+        guard let data = model?.data else { return UITableViewCell() }
+    
             if modelType == "hz" {
                 let cell = tableView.dequeueReusableCell(withIdentifier: ConfigurationCell.hzTableViewCell, for: indexPath) as! HzTableViewCell
                 cell.configure(data: data)

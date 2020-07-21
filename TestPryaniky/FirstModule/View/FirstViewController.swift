@@ -10,7 +10,6 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
-    var arrayModels = [Model]()
     var presenter: FirstViewIPresenterInterface!
     
     @IBOutlet weak var tableView: UITableView!
@@ -41,11 +40,11 @@ extension FirstViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          let vc = SecondViewController()
+        let vc = SecondViewController()
         vc.model = presenter.model
         vc.modelType = presenter.model?.view?[indexPath.row]
-          self.navigationController?.pushViewController(vc, animated: true)
-      }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension FirstViewController: FirstViewInterface {
